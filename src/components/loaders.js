@@ -1,8 +1,7 @@
 var pageLoader = Vue.component("page-loader", {
-    props: ["content"],
     data(){
         return {
-            contentText: this.$props.content || "Loading. Please Wait."
+            contentText: this.$root.pageloader.content || "Loading. Please Wait."
         }
     },
     template: `

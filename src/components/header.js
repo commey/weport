@@ -36,7 +36,7 @@ var pageHeader = Vue.component("page-header", {
                 <a href="#" class="dropdown-toggle mln" data-toggle="dropdown">
                     <img src="assets/img/avatars/profile_avatar.jpg" alt="avatar">
                     <span class="hidden-xs">
-                        <span class="name">Doug Adams</span>
+                        <span class="name">Josh Commey</span>
                     </span>
                     <span class="fa fa-caret-down hidden-xs"></span>
                 </a>

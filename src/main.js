@@ -28,7 +28,7 @@ var vm = new Vue({
 		baseUrl: baseUrl,
 		page: routes[window.location.hash.replace("#/", "")] || routes["notfound"],
 		notfound: routes["notfound"],
-		showPageLoader: false
+		pageloader: {show: false, content: ""}
 	},
 	methods: {
 		renderPage(page, nopush){

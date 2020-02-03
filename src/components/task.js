@@ -10,13 +10,13 @@ var task = Vue.component("task", {
 		}
 	},
 	template: `
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<div class="row">
-				<div class="col-sm-10 offset-sm-1">
-					<h3 class="task-title text-center" v-if="taskTitle">{{ taskTitle }}</h3>
-					<h3 class="task-title text-center" v-else>Task {{ index }}</h3>
+				<div class="col-sm-10 col-sm-offset-1">
+					<h5 class="task-title text-center" v-if="taskTitle">{{ taskTitle }}</h5>
+					<h5 class="task-title text-center" v-else>Task {{ index }}</h5>
 					<div class="form-group">
-						<input type="text" class="form-control" :name="taskName" v-model="taskTitle" value="" placeholder="Task">
+						<textarea class="form-control" :name="taskName" v-model="taskTitle" placeholder="Task"></textarea>
 					</div>
 					<div class="form-group">
 						<textarea :name="startStateName" class="form-control" placeholder="State of the Task When Beginning"></textarea>
