@@ -14,26 +14,26 @@
 				H::json($projects);
 				break;
 			case "preview":
-				require('../app/libraries/fpdf182/fpdf.php');
+				require('../app/libraries/html2pdf.php');
 				$post = processRawPOST();
 				$fileName = "joshua_commey_".date("dmY", strtotime($post->to));
-				$sh = new FPDF();
+				$sh = new PDF_HTML();
 				frontPage($sh, $post);
 				tableOfContent($sh, $post);
 				listOfTasks($sh, $post);
 				projects($sh, $post);
 				furtherComments($sh, $post);
-				$sh->Output("D", "$fileName.pdf");
+				$sh->Output("F", "$fileName.pdf");
 			break;
 		}
 		// H::json($_POST);
 	}
 
 	if(isset($_GET['preview'])){
-		require('../app/libraries/fpdf182/fpdf.php');
+		require('../app/libraries/html2pdf.php');
 		$projects = processRawPOST();
 		// var_dump($projects);
-		$sh = new FPDF();
+		$sh = new PDF_HTML();
 		frontPage($sh);
 		tableOfContent($sh);
 		listOfTasks($sh);
@@ -232,10 +232,9 @@
 				$sh->SetFont('', '', 12);
 				$sh->Cell(0,6, "What You Did on the Task");
 				$sh->Ln();
-				$sh->Cell(40,0,'');
 				$sh->SetTextColor(10, 10, 10);
 				$sh->SetFont('', 'I', 12);
-				$sh->Cell(0,6, $task['done']);
+				$sh->WriteHTML(str_replace(PHP_EOL, "<br>", $task['done']), 40);
 				$sh->Ln(12);
 				$sh->Cell(40,0,'');
 				$sh->SetTextColor(2, 74, 80);
